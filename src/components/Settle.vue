@@ -23,6 +23,29 @@ export default {
       msg: '应收账款支付结算',
       detail: '应收账款单据到期时核心企业向下游企业支付相应的欠款'
     }
+  },
+  methods: {
+    cilckLogin: function(){
+     
+      var that = this
+      var params = new URLSearchParams()
+      params.append('billIndex',parseInt(this.billIndex))
+      params.append('date','1998-08-13')
+      alert(params)
+      this.$axios.request({
+        url:'http://localhost:8085/settle',
+        method: 'POST',
+        data: JSON.stringify(params),
+        responseType: 'json',
+      }).then(function(response){
+         alert('hhh')
+        console.log(response.data)
+      })
+
+    },
+    change:function(e) {
+      this.$forceUpdate()
+    },
   }
 }
 </script>
