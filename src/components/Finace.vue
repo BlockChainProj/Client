@@ -35,6 +35,12 @@ export default {
     change:function(e) {
       this.$forceUpdate()
     },
+    cilckLogin: function(e){
+      this.$message({
+          message: '上链成功！',
+          type: 'success'
+        });
+    }
   }
 }
 </script>

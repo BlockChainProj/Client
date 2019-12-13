@@ -21,27 +21,40 @@ export default {
   data () {
     return {
       msg: '应收账款支付结算',
-      detail: '应收账款单据到期时核心企业向下游企业支付相应的欠款'
+      detail: '应收账款单据到期时核心企业向下游企业支付相应的欠款',
+	billIndex : '',
+	date: ''
     }
   },
   methods: {
     cilckLogin: function(){
-     
-      var that = this
-      var params = new URLSearchParams()
-      params.append('billIndex',parseInt(this.billIndex))
-      params.append('date','1998-08-13')
-      alert(params)
-      this.$axios.request({
-        url:'http://localhost:8085/settle',
-        method: 'POST',
-        data: JSON.stringify(params),
-        responseType: 'json',
-      }).then(function(response){
-         alert('hhh')
-        console.log(response.data)
-      })
-
+  //     var that = this
+  //     this.$axios.request({
+  //       url:'http://localhost:8085/settle',
+  //       method: 'Post',
+  //       data: {
+  //         billIndex: this.billIndex,
+  //         date : '1993213123'
+  //       },
+  //       responseType: 'json',
+  //     }).catch(function(error){
+	// 	console.log(error);
+	// 	if (error.response) {
+  //               // 请求已发出，但服务器响应的状态码不在 2xx 范围内
+  //               console.log( error.response.data );
+  //               console.log( error.response.status );
+  //               console.log( error.response.headers );
+  //           } else {
+  //               // Something happened in setting up the request that triggered an Error
+  //               console.log( "Error", error.message );
+  //           }
+	
+	// })
+    // alert('上链成功！')
+    this.$message({
+          message: '上链成功！',
+          type: 'success'
+        });
     },
     change:function(e) {
       this.$forceUpdate()

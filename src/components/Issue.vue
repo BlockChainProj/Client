@@ -32,6 +32,7 @@
   </div>
   </el-form>
   </div>
+  
 </template>
 
 <script>
@@ -44,6 +45,7 @@ export default {
       ruleForm:{
         publicKey:'',
       },
+     
       rules:{
         publicKey:[
           {required: true, message:' ', trigger:'blur'}
@@ -55,6 +57,15 @@ export default {
     change:function(e) {
       this.$forceUpdate()
     },
+    cilckLogin: function(e){
+       this.$message({
+          message: '上链成功！',
+          type: 'success'
+        });
+      
+      // alert('上链成功！')
+    },
+    
   }
 }
 </script>
